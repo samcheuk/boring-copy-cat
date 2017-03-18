@@ -1,7 +1,7 @@
 chrome.browserAction.onClicked.addListener(
   function(tab) { 
     chrome.tabs.executeScript(null, {
-      file: "getPageSource.js"
+      file: "get_page_source.js"
     });
   }
 );
@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
     // console.log(request.source);
     var htmlcode = request.source;
-    var res = htmlcode.match(//g);
+    var res = htmlcode.match(/dd/g);
     var x = res[0];
     var copyvalue = x.slice(3, x.length - 4);
     
