@@ -6,21 +6,34 @@ chrome.browserAction.onClicked.addListener(
   }
 );
 
+function makeCopy(copyValue) {
+  var copyFrom = document.createElement("textarea");
+  copyFrom.textContent = copyValue;
+  var body = document.getElementsByTagName('body')[0];
+  body.appendChild(copyFrom);
+  copyFrom.select();
+  document.execCommand('copy');
+  body.removeChild(copyFrom);
+  
+  console.log("BoringCopyCat: " + copyValue);
+}
+
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
     // console.log(request.source);
     var htmlcode = request.source;
-    var res = htmlcode.match(/dd/g);
-    var x = res[0];
-    var copyvalue = x.slice(3, x.length - 4);
     
-    // make a copy
-    var copyFrom = document.createElement("textarea");
-    copyFrom.textContent = copyvalue;
-    var body = document.getElementsByTagName('body')[0];
-    body.appendChild(copyFrom);
-    copyFrom.select();
-    document.execCommand('copy');
-    body.removeChild(copyFrom);
+    // get option value
+    chrome.storage.sync.get({
+      scbccRegexString: '',
+      scbccRegexFrom: '',
+      scbccRegexTo: '',
+    }, function(items) {
+      var res = htmlcode.match(items.scbccRegexString);
+      // get first result
+      res = res[0];
+      var copyValue = res.slice(items.scbccRegexFrom, res.length - items.scbccRegexTo);
+      makeCopy(copyValue);
+    });
   }
 });

@@ -2,7 +2,7 @@
   "name": "Boring Copy Cat",
   "description": "Boring Copy Cat",
   "version": "1",
-  "permissions": ["contextMenus", "activeTab"],
+  "permissions": ["contextMenus", "activeTab", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
