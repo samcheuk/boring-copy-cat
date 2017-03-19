@@ -6,7 +6,9 @@ Chrom extension that using regex expression to make a same copy in every similar
 
 ### Install
 
+Chrome extension store
 
+[https://chrome.google.com/webstore/detail/boring-copy-cat/bgbngphkialhkmnbphjhlicnedejanni](https://chrome.google.com/webstore/detail/boring-copy-cat/bgbngphkialhkmnbphjhlicnedejanni)
 
 ### Example
 
