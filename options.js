@@ -1,5 +1,19 @@
+// Google Analytics
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-93987323-1']);
+_gaq.push(['_trackPageview', 'options.html']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+// End Google Analytics
+
 // Saves options to chrome.storage
 function save_options() {
+  _gaq.push(['_trackEvent', 'option_save', 'clicked']);
+  
   var regexString = document.getElementById('regexString').value;
   var regexFrom = document.getElementById('regexFrom').value;
   var regexTo = document.getElementById('regexTo').value;

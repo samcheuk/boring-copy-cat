@@ -10,9 +10,7 @@ Chrom extension that using regex expression to make a same copy in every similar
 
 ### Example
 
-In option page:
-
-
+In option page (right click icon)
 
 Regex expression
 
