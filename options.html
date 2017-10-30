@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="extra/styles.css">
+    <script src="extra/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <div class="container">  
@@ -9,13 +10,9 @@
           <img src="copy_cat.png">
         </center>
         Regex expression
-        <fieldset>
-          <input id="regexString" placeholder="e.g. /this is test/g" type="text" tabindex="1" required autofocus>
-        </fieldset>
-        from ... to ...
-        <fieldset>
-          <input id="regexFrom" placeholder="e.g. 3" type="text" tabindex="2" required>
-          <input id="regexTo" placeholder="e.g. 10" type="text" tabindex="2" required>
+        <fieldset style="position: relative">
+          <input id="field1" placeholder="e.g. /this is test/g" type="text" tabindex="1"> 
+          <button id="b1" class="btn add-more" type="button">+</button>
         </fieldset>
         <fieldset>
           <button name="save" type="submit" id="save" data-submit="save">Save</button>
