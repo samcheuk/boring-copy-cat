@@ -18,7 +18,7 @@ function makeCopy () {
   copyFrom.select()
   document.execCommand('copy')
   body.removeChild(copyFrom)
-
+  _gaq.push(['_trackEvent', 'copy', copyValue])
   console.log('BoringCopyCat: ' + copyValue)
 }
 
@@ -32,7 +32,11 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
       var html = ''
       var values = []
       for (var i = 0; i < items.scbccRegexDict.length; i++) {
-        var value = htmlcode.match(items.scbccRegexDict[i].value)[0]
+        var matchResult = htmlcode.match(items.scbccRegexDict[i].value)
+        var value = "NOT FOUND"
+        if (matchResult !== null && matchResult !== undefined) {
+          value = matchResult[1]
+        }
         values.push(value)
         var inputFieldId = 'field' + i
         var buttonId = 'b' + i
@@ -53,12 +57,4 @@ window.onload = function () {
   chrome.tabs.executeScript(null, {
     file: 'get_page_source.js'
   })
-//   chrome.browserAction.onClicked.addListener(
-//     function (tab) {
-//       _gaq.push(['_trackEvent', 'cat_icon', 'clicked'])
-//       chrome.tabs.executeScript(null, {
-//         file: 'get_page_source.js'
-//       })
-//     }
-//   )
 }
