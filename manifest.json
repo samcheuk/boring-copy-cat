@@ -2,12 +2,9 @@
   "name": "Boring Copy Cat",
   "description": "Boring Copy Cat",
   "version": "1",
-  "permissions": ["contextMenus", "activeTab", "storage"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
+  "permissions": ["contextMenus", "activeTab", "storage", "tabs"],
   "browser_action": {
+    "default_popup": "index.html",
     "default_title": "Boring Copy Cat",
     "default_icon": "copy_cat.png"
   },
