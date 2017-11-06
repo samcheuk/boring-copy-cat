@@ -1,14 +1,14 @@
 {
   "name": "Boring Copy Cat",
   "description": "Boring Copy Cat",
-  "version": "1",
+  "version": "2",
   "permissions": ["contextMenus", "activeTab", "storage", "tabs"],
   "browser_action": {
-    "default_popup": "index.html",
+    "default_popup": "main.html",
     "default_title": "Boring Copy Cat",
     "default_icon": "copy_cat.png"
   },
   "options_page": "options.html",
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-  "manifest_version": 2
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com 'sha256-ZiOd4bZbqlDsFEoXpe+JsJql4jVvofb0ngqCh5/Dh/A='; object-src 'self'"
 }

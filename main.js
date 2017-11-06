@@ -1,13 +1,3 @@
-// Google Analytics
-var _gaq = _gaq || []
-_gaq.push(['_setAccount', 'UA-93987323-1']);
-
-(function () {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
-  ga.src = 'https://ssl.google-analytics.com/ga.js'
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s)
-})()
-// End Google Analytics
 
 function makeCopy () {
   var copyValue = this
@@ -18,7 +8,7 @@ function makeCopy () {
   copyFrom.select()
   document.execCommand('copy')
   body.removeChild(copyFrom)
-  _gaq.push(['_trackEvent', 'copy', copyValue])
+  ga('send', 'event', 'copy', 'copy', copyValue)
   console.log('BoringCopyCat: ' + copyValue)
 }
 
@@ -33,7 +23,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
       var values = []
       for (var i = 0; i < items.scbccRegexDict.length; i++) {
         var matchResult = htmlcode.match(items.scbccRegexDict[i].value)
-        var value = "NOT FOUND"
+        var value = 'NOT FOUND'
         if (matchResult !== null && matchResult !== undefined) {
           value = matchResult[1]
         }
@@ -53,7 +43,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 })
 
 window.onload = function () {
-  _gaq.push(['_trackEvent', 'cat_icon', 'clicked'])
+  ga('send', 'event', 'copy', 'open')
   chrome.tabs.executeScript(null, {
     file: 'get_page_source.js'
   })
